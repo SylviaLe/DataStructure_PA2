@@ -1,9 +1,9 @@
 public class BracketMatcher
 {
-    private String opening = "([{<";  
-    private String ending = ")]}>";
-    private SinglyLinkedStack<Character> stack = new SinglyLinkedStack<>();
-    private boolean isOpeningBracket(char c)
+    private static String opening = "([{<";  
+    private static String ending = ")]}>";
+    private static SinglyLinkedStack<Character> stack = new SinglyLinkedStack<>();
+    private static boolean isOpeningBracket(char c)
     {
         String temp = Character.toString(c);
         if (opening.indexOf(temp) != -1)
@@ -11,20 +11,20 @@ public class BracketMatcher
         return false;
     }
 
-    private boolean isClosingBracket(char c)
+    private static boolean isClosingBracket(char c)
     {
         if (ending.indexOf(c) != -1)
             return true;
         return false;
     }
-    private boolean corresponds(char open, char close)
+    private static boolean corresponds(char open, char close)
     {
         if (opening.indexOf(open) == ending.indexOf(close))
             return true;
         return false;
     }
 
-    private boolean checkBrackets(String s)
+    public static boolean checkBrackets(String s)
     {
         for(int i = 0; i < s.length(); i++)
         {
