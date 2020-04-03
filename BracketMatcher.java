@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class BracketMatcher
 {
     
@@ -38,12 +39,12 @@ public class BracketMatcher
             {
                 if(stack.isEmpty()) //the only case that this will be executed is when the number of closing brackets > number opening brackets.
                 {                   
-                    System.out.println("Error at position" + i + ':' + s.charAt(i)); //so the prob is at the final bracket
+                    System.out.println("Error at position " + i + ':' + s.charAt(i)); //so the prob is at the final bracket
                     return false;
                 }
                 else if(!corresponds(s.charAt(i), stack.pop()))  //pop() is called here, that's why the list can be empty at the end
                 {
-                    System.out.println("Error at position" + i + ':' + s.charAt(i));  //error will be at the place where return false
+                    System.out.println("Error at position " + i + ':' + s.charAt(i));  //error will be at the place where return false
                     return false;
                 }
             }
@@ -58,6 +59,14 @@ class BracketMatcherApp
 {
     public static void main(String[] args)
     {
-
+        Scanner input = new Scanner(System.in);
+        System.out.print ("Enter the string of brackets: ");
+        String brackets = input.next();
+        if (BracketMatcher.checkBrackets(brackets) == true)
+        {
+            System.out.println("All perfectly matched!");  //special for success case
+        }
+        input.close();  //java generated a warning if the scanner is not closed
     }
+
 }
