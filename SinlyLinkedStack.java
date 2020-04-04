@@ -1,11 +1,33 @@
 import java.util.Scanner;
+
+ /**
+  * A public class that performs bracket matching task
+  */
 public class BracketMatcher
 {
-    
-    private static char[] opening = {'(','[','{','<'};  // create an array of opening brackets
-    private static char[] ending = {')',']','}','>'};  // create an array of closing brackets
+   
+    /**
+     * The array of characters (of type char) holding the opening brackets 
+    */
+    private static char[] opening = {'(','[','{','<'};  
+
+    /**
+     * The array of characters holding the corresponding closing brackets 
+    */
+    private static char[] ending = {')',']','}','>'}; 
+
+    /**
+     * New empty stack implemented using singly linked list
+    */    
     private static SinglyLinkedStack<Character> stack = new SinglyLinkedStack<>();
     
+
+
+    /**
+     * Return whether a character is an opening bracket
+     * @param c a character from the input string
+     * @return true iff the character c is an opening bracket, false otherwise
+    */ 
     private static boolean isOpeningBracket(char c)  //since not used elsewhere, declared as private
     {
         // convert char array to String using method valueOf(char[] data)
@@ -14,18 +36,34 @@ public class BracketMatcher
         return false;
     }
 
+
+    /**
+     * Return whether a character is a closing bracket
+     * @param c a character from the input string
+     * @return true iff the character c is a closing bracket, false otherwise
+    */ 
     private static boolean isClosingBracket(char c) //similar explanation above
     {
         if (String.valueOf(ending).indexOf(c) != -1)
             return true;
         return false;
     }
+
+
+    /**
+     * Return whether an opening bracket character corresponds to the closing bracket character close
+     * @param open an opening bracket character
+     * @param close a closing bracket character
+     * @return true iff the character open is a bracket that corresponds to the closing bracket character close
+    */ 
     private static boolean corresponds(char open, char close)
     {
         if (String.valueOf(opening).indexOf(open) == String.valueOf(ending).indexOf(close))  //if the index of the bracket in the hardcode is similar
             return true;                        //then it's a match
         return false;
     }
+
+
 
     public static boolean checkBrackets(String s)
     {
@@ -54,8 +92,6 @@ public class BracketMatcher
         if(stack.size() > 0) System.out.println("Error at position " + (current - stack.size() + 1) + ':' + s.charAt(current - stack.size() + 1)); // if opening brackets > closing brackets
         return stack.isEmpty();  //add some line to indicate if it's a match
     }
-
-
 }
 
 class BracketMatcherApp
