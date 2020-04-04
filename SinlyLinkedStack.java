@@ -1,28 +1,19 @@
 import java.util.Scanner;
 
- /**
-  * A public class that performs bracket matching task
-  */
+/**
+ * A public class that performs bracket matching task
+ */
 public class BracketMatcher
 {
-   
-    /**
-     * The array of characters (of type char) holding the opening brackets 
-    */
+    //The array of characters (of type char) holding the opening brackets    
     private static char[] opening = {'(','[','{','<'};  
 
-    /**
-     * The array of characters holding the corresponding closing brackets 
-    */
+    //The array of characters holding the corresponding closing brackets 
     private static char[] ending = {')',']','}','>'}; 
 
-    /**
-     * New empty stack implemented using singly linked list
-    */    
+    //New empty stack implemented using singly linked list
     private static SinglyLinkedStack<Character> stack = new SinglyLinkedStack<>();
     
-
-
     /**
      * Return whether a character is an opening bracket
      * @param c a character from the input string
@@ -36,7 +27,6 @@ public class BracketMatcher
         return false;
     }
 
-
     /**
      * Return whether a character is a closing bracket
      * @param c a character from the input string
@@ -48,7 +38,6 @@ public class BracketMatcher
             return true;
         return false;
     }
-
 
     /**
      * Return whether an opening bracket character corresponds to the closing bracket character close
@@ -63,8 +52,11 @@ public class BracketMatcher
         return false;
     }
 
-
-
+    /**
+     * Return whether a string has brackets that are all matched up properly
+     * @param s a String object
+     * @return true iff the string s has brackets that are all matched up properly
+    */
     public static boolean checkBrackets(String s)
     {
         int current = 0;
@@ -94,6 +86,9 @@ public class BracketMatcher
     }
 }
 
+/**
+ * Test the class by performing a series of operations
+*/
 class BracketMatcherApp
 {
     public static void main(String[] args)
@@ -108,5 +103,4 @@ class BracketMatcherApp
         }
         input.close();  //java generated a warning if the scanner is not closed
     }
-
 }
