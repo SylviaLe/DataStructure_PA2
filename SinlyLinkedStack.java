@@ -49,6 +49,7 @@ public class BracketMatcher
                 }
             }
         }
+        if(stack.size() == 1) System.out.println("Error at position " + i + ':' + s.charAt(i)); // if final bracket is an opening bracket
         return stack.isEmpty();  //add some line to indicate if it's a match
     }
 
@@ -59,10 +60,11 @@ class BracketMatcherApp
 {
     public static void main(String[] args)
     {
+        BracketMatcher myMatcher  = new BracketMatcher(); //Create an instance of the BracketMatcher class
         Scanner input = new Scanner(System.in);
         System.out.print ("Enter the string of brackets: ");
         String brackets = input.next();
-        if (BracketMatcher.checkBrackets(brackets) == true)
+        if (myMatcher.checkBrackets(brackets) == true)
         {
             System.out.println("All perfectly matched!");  //special for success case
         }
