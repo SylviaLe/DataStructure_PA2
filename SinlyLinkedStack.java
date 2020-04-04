@@ -29,11 +29,13 @@ public class BracketMatcher
 
     public static boolean checkBrackets(String s)
     {
+        int current = 0;
         for(int i = 0; i < s.length(); i++)  //loop through the entire string
         {
             if(isOpeningBracket(s.charAt(i)))
             {
                 stack.push(s.charAt(i));  //if an opening bracket is encountered, push
+                current = i;
             }
             else if((isClosingBracket(s.charAt(i))))
             {
@@ -49,7 +51,7 @@ public class BracketMatcher
                 }
             }
         }
-        if(stack.size() == 1) System.out.println("Error at position " + i + ':' + s.charAt(i)); // if final bracket is an opening bracket
+        if(stack.size() > 0) System.out.println("Error at position " + (current - stack.size() + 1) + ':' + s.charAt(current - stack.size() + 1)); // if opening brackets > closing brackets
         return stack.isEmpty();  //add some line to indicate if it's a match
     }
 
