@@ -69,6 +69,7 @@ public class BracketMatcher
             }
             else if((isClosingBracket(s.charAt(i))))
             {
+                current = i;
                 if(stack.isEmpty()) //the only case that this will be executed is when the number of closing brackets > number opening brackets.
                 {                   
                     System.out.println("Error at position " + i + ':' + s.charAt(i)); //so the prob is at the final bracket
