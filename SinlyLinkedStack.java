@@ -5,13 +5,19 @@ import java.util.Scanner;
  */
 public class BracketMatcher
 {
-    //The array of characters (of type char) holding the opening brackets    
+    /**
+     *The array of characters (of type char) holding the opening brackets    
+    */
     private char[] opening = {'(','[','{','<'};  
-
-    //The array of characters holding the corresponding closing brackets 
+    
+    /**
+     * The array of characters holding the corresponding closing brackets 
+    */
     private char[] ending = {')',']','}','>'}; 
 
-    //New empty stack implemented using singly linked list
+    /**
+     * New empty stack implemented with singly linked list
+    */
     public SinglyLinkedStack<Character> stack = new SinglyLinkedStack<>();
     
     /**
@@ -93,7 +99,7 @@ class BracketMatcherApp
     {
         BracketMatcher myMatcher  = new BracketMatcher(); //Create an instance of the BracketMatcher class
         Scanner input = new Scanner(System.in);
-        System.out.print ("Enter the string of brackets: ");
+        System.out.print ("Enter your input string here: ");
         String brackets = input.next();
 
         if (myMatcher.checkBrackets(brackets) == true)
