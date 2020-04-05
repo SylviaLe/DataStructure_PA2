@@ -105,7 +105,7 @@ class BracketMatcherApp
         if (myMatcher.checkBrackets(brackets) == true)
             System.out.println("All perfectly matched!");  //special for success case
         else
-            System.out.println(myMatcher.stack.size() + " opening brackets are missing their corresponding closing brackets.");
+            System.out.println("There are still " + myMatcher.stack.size() + " opening brackets without their corresponding closing brackets.");
 
         input.close();  //java generated a warning if the scanner is not closed
     }
