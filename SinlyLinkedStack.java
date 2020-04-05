@@ -12,10 +12,7 @@ public class BracketMatcher
     private char[] ending = {')',']','}','>'}; 
 
     //New empty stack implemented using singly linked list
-    private SinglyLinkedStack<Character> stack = new SinglyLinkedStack<>();
-
-    //New empty stack implemented using singly linked list to store corresponding indices of elements in stack
-    private SinglyLinkedStack<Integer> indices = new SinglyLinkedStack<>();
+    public SinglyLinkedStack<Character> stack = new SinglyLinkedStack<>();
     
     /**
      * Return whether a character is an opening bracket
@@ -58,7 +55,7 @@ public class BracketMatcher
     /**
      * Return whether a string has brackets that are all matched up properly
      * @param s a String object
-     * @return true iff the string s has brackets that are all matched up properly
+     * @return true iff the string s has brackets that are all matched up properly, false otherwise
     */
     public boolean checkBrackets(String s)
     {
@@ -67,7 +64,6 @@ public class BracketMatcher
             if(isOpeningBracket(s.charAt(i)))
             {
                 stack.push(s.charAt(i));  //if an opening bracket is encountered, push
-                indices.push(i);
             }
             else if((isClosingBracket(s.charAt(i))))
             {
@@ -76,7 +72,7 @@ public class BracketMatcher
                     System.out.println("Error at position " + i + ':' + s.charAt(i)); //so the prob is at the final bracket
                     return false;
                 }
-                else if(!corresponds(stack.pop(), s.charAt(i)) || indices.pop() == -1)  //pop() is called here, that's why the list can be empty at the end
+                else if(!corresponds(stack.pop(),s.charAt(i)))  //pop() is called here, that's why the list can be empty at the end
                 {
                     System.out.println("Error at position " + i + ':' + s.charAt(i));  //error will be at the place where return false
                     return false;
@@ -84,18 +80,7 @@ public class BracketMatcher
             }
         }
 
-        if(stack.size() > 0) 
-        {
-            while(stack.size() != 1) 
-            {
-                stack.pop();
-                indices.pop();
-            }
-            System.out.println("Error at position " + indices.pop() + ':' + stack.pop()); // if opening brackets > closing brackets
-            return false; 
-        }
-        else
-            return true; // if all brackets are matched up correctly
+        return stack.isEmpty(); // true if all brackets are matched up correctly, false if some opening brackets miss their closing ones
     }
 }
 
@@ -110,10 +95,12 @@ class BracketMatcherApp
         Scanner input = new Scanner(System.in);
         System.out.print ("Enter the string of brackets: ");
         String brackets = input.next();
+
         if (myMatcher.checkBrackets(brackets) == true)
-        {
             System.out.println("All perfectly matched!");  //special for success case
-        }
+        else
+            System.out.println(myMatcher.stack.size() + " opening brackets are missing their corresponding closing brackets.");
+
         input.close();  //java generated a warning if the scanner is not closed
     }
 }
