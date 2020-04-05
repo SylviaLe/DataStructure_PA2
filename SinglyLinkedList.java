@@ -1,3 +1,7 @@
+// COM212 - PA2
+// Due date: 04/07/2020
+// Sylvia Le & Sophie Le
+// Prof. William Tarimo
 /**
 * A generic SinglyLinkedList class, holding a list of generic SNodes
 * An SNode stores an arbitrary element E
