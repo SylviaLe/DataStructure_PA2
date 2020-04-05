@@ -1,3 +1,7 @@
+// COM212 - PA2
+// Due date: 04/07/2020
+// Sylvia Le & Sophie Le
+// Prof. William Tarimo
 /**
 * A generic node class for a SinglyLinkedList class
 * This stores an arbitrary element object type
