@@ -1,4 +1,8 @@
- /**
+// COM212 - PA2
+// Due date: 04/07/2020
+// Sylvia Le & Sophie Le
+// Prof. William Tarimo 
+/**
   * Implementation of a generic stack ADT using a fixed-length array.
   * Stack: a collection of objects that are inserted
   * and removed according to the last-in first-out (LIFO) principle.
