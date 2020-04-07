@@ -2,7 +2,7 @@
 // Due date: 04/07/2020
 // Sylvia Le & Sophie Le
 // Prof. William Tarimo
-import java.util.Scanner;
+import java.util.Scanner;     
 
 /**
  * A public class that performs bracket matching task
@@ -27,7 +27,7 @@ public class BracketMatcher
     /**
      * Return whether a character is an opening bracket
      * @param c a character from the input string
-     * @return true iff the character c is an opening bracket, false otherwise
+     * @return true if the character c is an opening bracket, false otherwise
     */ 
     private boolean isOpeningBracket(char c)  //since not used elsewhere, declared as private
     {
